@@ -1,0 +1,35 @@
+extends base.pug
+
+block content
+    
+    div.col-12.text-center.navba
+        div.col-8.mx-auto.bg-light
+            form(action="/add" method='post' class='boxb col-12 ')
+                p#legend Create Post
+                div.form-group
+                    label.letter(for='post',class='text-left') Write something:
+                        input#post(type="textarea", name="post",class="form-control form-control-lg")
+                div.form-group
+                    label.letter(for='post_image' ,class='text-left') Image:
+                        input#post_image(type="url", name="post_image",class="form-control form-control-lg")
+                div.asub
+                    input.submit.btn.btn-primary(type="submit", name="done" ,value='Write post')
+                hr    
+
+            
+            div.bg-light
+                each p in posts
+                    div.text-left.row
+                        div.circulo
+                        div.col-10
+                            p=p.post
+                            p=p.post_image
+                            p=p.created_at
+                            p=p.user_id
+                            div 
+                                a(href=`/edit/${p.id}`) 
+                                    span.icone
+                                        i(class="fa fa-pencil fa-lg text-grey" aria-hidden="true")
+                                a(href=`/delete/${p.id}`)    
+                                    span.icone
+                                        i(class="fa fa-trash-o fa-lg text-grey" aria-hidden="true")   

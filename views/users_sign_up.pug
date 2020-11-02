@@ -1,0 +1,22 @@
+extends base.pug
+
+block content
+    
+    div.col-12.text-center.navba
+        form(action="/register" method='post' class='boxb col-4 mx-auto bg-light')
+            p#legend Create an account
+            div.form-group
+                label.letter(for='name',class='text-left') Name:
+                    input#name(type="text", name="name",class="form-control form-control-lg")
+            div.form-group
+                label.letter(for='email' ,class='text-left') Email:
+                    input#email(type="text", name="email",class="form-control form-control-lg")
+            div.form-group        
+                label.letter(for='password' ,class='text-left') Password:
+                    input#password(type="password", name="password",class="form-control form-control-lg") 
+            div.asub
+                input.submit(type="submit", name="done" ,value='Sign up')  
+       
+     
+
+    
